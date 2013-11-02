@@ -1,0 +1,50 @@
+<table class="table table-bordered table-hover">
+    <caption><h3>Speakers</h3></caption>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="speaker in speakers">
+            <td class="span1">{{speaker.id}}</td>
+            <td class="span3">{{speaker.name}}</td>
+            <td class="span9">{{speaker.description}}</td>
+            <td class="span1">
+                <div class="btn-group">
+                    <button class="btn btn-small btn-primary" ng-click="startEditing(speaker)">Edit</button>
+                    <button class="btn btn-small" ng-click="delete(speaker)">Remove</button>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<form class="form-horizontal">
+    <fieldset>
+        <legend>
+            <span ng-hide="editModeEnabled()">Create new Speaker</span>
+            <span ng-show="editModeEnabled()">Edit Speaker</span>
+        </legend>
+        <div class="control-group">
+            <label class="control-label" for="inputName">Name</label>
+            <div class="controls">
+                <input type="text" id="inputName" placeholder="Name" ng-model="speaker.name">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputDescription">Description</label>
+            <div class="controls">
+                <input type="text" id="inputDescription" placeholder="Description" ng-model="speaker.description">
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-primary" ng-click="saveSpeaker()">Save</button>
+                <button class="btn" ng-click="cancelEditing()">Cancel</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
