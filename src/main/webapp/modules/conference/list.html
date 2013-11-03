@@ -1,0 +1,26 @@
+<div class="well">
+    <h3>Conferences</h3>
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="conference in conferences">
+                <td class="span1">{{conference.id}}</td>
+                <td class="span3">{{conference.name}}</td>
+                <td class="span9">{{conference.description}}</td>
+                <td class="span2">
+                    <div class="btn-group">
+                        <a class="btn btn-small btn-primary" ng-href="#/conference/edit/{{conference.id}}">Edit</a>
+                        <a class="btn btn-small" ng-click="delete(conference)">Remove</a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="#/conference/create" class="btn">Add conference</a>
+</div>
