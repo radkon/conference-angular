@@ -4,10 +4,7 @@
 var application = angular.module('module.app', [
     'ui.bootstrap',
     'ngRoute',
-    'myApp.filters',
-    'myApp.services',
-    'myApp.directives',
-    'myApp.controllers',
+    'ngResource',
     'modules.overview',
     'modules.conference'
 ]);
