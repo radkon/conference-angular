@@ -7,16 +7,13 @@ roomModule.factory('Room', ['$resource', function ($resource) {
 }]);
 
 roomModule.controller('module.room.ListController', ['$scope', 'Room', function ($scope, Room) {
-    // $scope.rooms = Room.query();
-    $scope.rooms = [
-        new Room({"id":"1","name":"Adria","capacity":100}),
-        new Room({"id":"2","name":"Glaskasten","capacity":20}),
-        new Room({"id":"3","name":"Konfi1","capacity":15})
-    ];
+    var loadRooms = function() {
+        $scope.rooms = Room.query();
+    };
     $scope.delete = function(room) {
-        room.$delete();
-
-    }
+        room.$delete(loadRooms);
+    };
+    loadRooms();
 }]);
 
 roomModule.controller('modules.room.CreateController', ['$scope', '$location', 'Room', function ($scope, $location, Room) {
@@ -36,7 +33,9 @@ roomModule.controller('modules.room.EditController', ['$scope', '$routeParams', 
     $scope.cancel = function () {
         $location.path('/room');
     };
-    $scope.room.$save(function() {
-        $location.path('/room');
-    });
+    $scope.save = function () {
+        $scope.room.$save(function() {
+            $location.path('/room');
+        });
+    };
 }]);
