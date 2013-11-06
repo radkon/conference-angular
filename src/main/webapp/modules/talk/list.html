@@ -1,24 +1,29 @@
-<h3>Conferences</h3>
+<h3>Backoffice > Talks</h3>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
             <th>#</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="conference in conferences">
-            <td class="span1">{{conference.id}}</td>
-            <td class="span3">{{conference.name}}</td>
-            <td class="span9">{{conference.description}}</td>
+        <tr ng-repeat="talk in talks">
+            <td class="span1">{{talk.id}}</td>
+            <td class="span2">{{talk.name}}</td>
+            <td class="span4">{{talk.description}}</td>
+            <td class="span2">{{talk.startTime|date:'short'}}</td>
+            <td class="span2">{{talk.endTime|date:'short'}}</td>
             <td class="span2">
                 <div class="btn-group">
-                    <a class="btn btn-small btn-primary" ng-href="#/conference/edit/{{conference.id}}">Edit</a>
-                    <a class="btn btn-small" ng-click="delete(conference)">Remove</a>
+                    <a class="btn btn-small btn-primary" ng-href="#/talk/edit/{{talk.id}}">Edit</a>
+                    <a class="btn btn-small" ng-click="delete(talk)">Remove</a>
                 </div>
             </td>
         </tr>
     </tbody>
 </table>
-<a href="#/conference/create" class="btn">Add conference</a>
+<a href="#/talk/create" class="btn">Add talk</a>

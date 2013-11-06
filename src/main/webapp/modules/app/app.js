@@ -52,6 +52,18 @@ application.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'modules/speaker/edit.html',
             controller: 'modules.speaker.EditController'}
     );
+    $routeProvider.when('/talk', {
+            templateUrl: 'modules/talk/list.html',
+            controller: 'module.talk.ListController'}
+    );
+    $routeProvider.when('/talk/create', {
+            templateUrl: 'modules/talk/create.html',
+            controller: 'modules.talk.CreateController'}
+    );
+    $routeProvider.when('/talk/edit/:talkId', {
+            templateUrl: 'modules/talk/edit.html',
+            controller: 'modules.talk.EditController'}
+    );
     $routeProvider.otherwise(
         {redirectTo: '/overview'}
     );

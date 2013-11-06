@@ -1,27 +1,53 @@
-<div class="well">
-    <h3>Edit Conference {{conference.id}}</h3>
-    <form class="form-horizontal">
-        <fieldset>
-            <div class="control-group">
-                <label class="control-label" for="inputName">Name</label>
-
-                <div class="controls">
-                    <input type="text" id="inputName" placeholder="Name" ng-model="conference.name">
-                </div>
+<h3>Backoffice > Talk > Edit</h3>
+<form class="form-horizontal">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="inputId">Id</label>
+            <div class="controls">
+                <input type="text" id="inputId" ng-model="talk.name" disabled>
             </div>
-            <div class="control-group">
-                <label class="control-label" for="inputDescription">Description</label>
-
-                <div class="controls">
-                    <input type="text" id="inputDescription" placeholder="Description" ng-model="conference.description">
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputName">Name</label>
+            <div class="controls">
+                <input type="text" id="inputName" placeholder="Name" ng-model="talk.name">
             </div>
-            <div class="control-group">
-                <div class="controls">
-                    <button class="btn btn-primary" ng-click="save()">Save</button>
-                    <button class="btn" ng-click="cancel()">Cancel</button>
-                </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputDescription">Description</label>
+            <div class="controls">
+                <input type="text" id="inputDescription" placeholder="Description" ng-model="talk.description">
             </div>
-        </fieldset>
-    </form>
-</div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputStartDate">Start time</label>
+            <div class="controls">
+                <input type="text" id="inputStartDate" placeholder="Start time" ng-model="talk.startTime">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputEndDate">End time</label>
+            <div class="controls">
+                <input type="text" id="inputEndDate" placeholder="End time" ng-model="talk.endTime">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputConference">Conference</label>
+            <div class="controls">
+                <select id="inputConference" ng-options="conf.name for conf in conferences" ng-model="talk.conference" ></select>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="inputRoom">Room</label>
+            <div class="controls">
+                <select id="inputRoom" ng-options="room.name for room in rooms" ng-model="talk.room" ></select>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button class="btn btn-primary" ng-click="save()">Save</button>
+                <button class="btn" ng-click="cancel()">Cancel</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
