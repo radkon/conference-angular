@@ -6,7 +6,10 @@ var application = angular.module('module.app', [
     'ngRoute',
     'ngResource',
     'modules.overview',
-    'modules.conference'
+    'modules.conference',
+    'modules.room',
+    'modules.speaker',
+    'modules.talk'
 ]);
 application.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/overview', {
@@ -25,17 +28,17 @@ application.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'modules/conference/edit.html',
             controller: 'modules.conference.EditController'}
     );
-    $routeProvider.when('/speaker', {
-        templateUrl: 'views/private/speakersBackoffice.html',
-        controller: 'SpeakerBackofficeCtrl'}
-    );
     $routeProvider.when('/room', {
-        templateUrl: 'views/private/roomsBackoffice.html',
-        controller: 'RoomBackofficeCtrl'}
+        templateUrl: 'modules/room/list.html',
+        controller: 'module.room.ListController'}
     );
-    $routeProvider.when('/talk', {
-        templateUrl: 'views/private/talkBackoffice.html',
-            controller: 'TalkBackofficeCtrl'}
+    $routeProvider.when('/room/create', {
+            templateUrl: 'modules/room/create.html',
+            controller: 'modules.room.CreateController'}
+    );
+    $routeProvider.when('/room/edit/:roomId', {
+            templateUrl: 'modules/room/edit.html',
+            controller: 'modules.room.EditController'}
     );
     $routeProvider.otherwise(
         {redirectTo: '/overview'}

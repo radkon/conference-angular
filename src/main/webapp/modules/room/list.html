@@ -1,0 +1,24 @@
+<h3>Backoffice > Rooms</h3>
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Capacity</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="room in rooms">
+            <td class="span1">{{room.id}}</td>
+            <td class="span3">{{room.name}}</td>
+            <td class="span9">{{room.capacity}}</td>
+            <td class="span2">
+                <div class="btn-group">
+                    <a class="btn btn-small btn-primary" ng-href="#/room/edit/{{room.id}}">Edit</a>
+                    <a class="btn btn-small" ng-click="delete(room)">Remove</a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a href="#/room/create" class="btn">Add room</a>
