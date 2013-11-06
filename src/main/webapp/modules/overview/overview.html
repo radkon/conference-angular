@@ -1,5 +1,6 @@
 <h3>Conferences</h3>
-<accordion close-others="1">
+<p ng-hide="conferences.length">Found no conferences to display.</p>
+<accordion close-others="1" ng-show="conferences.length">
     <accordion-group heading="{{conf.name}}" ng-repeat="conf in conferences">
         <p>{{conf.description}}</p>
         <table class="table table-condensed" ng-show="hasTalks(conf)">
