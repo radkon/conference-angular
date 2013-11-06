@@ -30,23 +30,20 @@ conferenceModule.controller('modules.conference.CreateController', ['$scope', '$
         $location.path('/conference');
     };
     $scope.save = function () {
-        $scope.conference.$save();
-        $location.path('/conference');
+        $scope.conference.$save(function(){
+            $location.path('/conference');
+        });
     };
 }]);
 
 conferenceModule.controller('modules.conference.EditController', ['$scope', '$routeParams', '$location', 'Conference', function ($scope, $routeParams, $location, Conference) {
     $scope.conference = Conference.get({conferenceId:$routeParams.conferenceId});
     $scope.cancel = function () {
-        reset();
         $location.path('/conference');
     };
     $scope.save = function () {
-        $scope.conference.$save();
-        reset();
-        $location.path('/conference');
+        $scope.conference.$save(function(){
+            $location.path('/conference');
+        });
     };
-    var reset = function () {
-        $scope.conference = undefined;
-    }
 }]);
