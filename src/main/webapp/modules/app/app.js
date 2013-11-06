@@ -40,6 +40,18 @@ application.config(['$routeProvider', function($routeProvider) {
             templateUrl: 'modules/room/edit.html',
             controller: 'modules.room.EditController'}
     );
+    $routeProvider.when('/speaker', {
+            templateUrl: 'modules/speaker/list.html',
+            controller: 'module.speaker.ListController'}
+    );
+    $routeProvider.when('/speaker/create', {
+            templateUrl: 'modules/speaker/create.html',
+            controller: 'modules.speaker.CreateController'}
+    );
+    $routeProvider.when('/speaker/edit/:speakerId', {
+            templateUrl: 'modules/speaker/edit.html',
+            controller: 'modules.speaker.EditController'}
+    );
     $routeProvider.otherwise(
         {redirectTo: '/overview'}
     );

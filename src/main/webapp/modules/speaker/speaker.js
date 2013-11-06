@@ -9,14 +9,8 @@ speakerModule.factory('Speaker', ['$resource', function ($resource) {
 speakerModule.controller('module.speaker.ListController', ['$scope', 'Speaker', function ($scope, Speaker) {
     // $scope.speakers = Speaker.query();
     $scope.speakers = [
-        new Speaker({"id":"1","name":"PAC Abschluss 1","description":"Präsentation der PAC Abschlussarbeit (Termin 1)", "startDate":"2013-10-25", "endDate":"2013-10-25", "talks": [
-            {"name":"Dominic", "description":"Dominic's presentation of his work", "startTime":"2013-10-25T07:15:00.000Z", "endTime":"2013-10-25T09:15:00.000Z"},
-            {"name":"Jens", "description":"Jens' presentation of his work", "startTime":"2013-10-25T09:15:00.000Z", "endTime":"2013-10-25T12:15:00.000Z"},
-            {"name":"Stephan", "description":"Stephan's presentation of his work", "startTime":"2013-10-25T12:15:00.000Z", "endTime":"2013-10-25T13:45:00.000Z"}
-        ]}),
-        new Speaker({"id":"2","name":"PAC Abschluss 2","description":"Präsentation der PAC Abschlussarbeit (Termin 2)", "startDate":"2013-11-01", "endDate":"2013-11-01"}),
-        new Speaker({"id":"3","name":"PAC Abschluss 3","description":"Präsentation der PAC Abschlussarbeit (Termin 3)", "startDate":"2013-11-08", "endDate":"2013-11-08"}),
-        new Speaker({"id":"4","name":"PAC Abschluss 4","description":"Präsentation der PAC Abschlussarbeit (Termin 4)", "startDate":"2013-11-15", "endDate":"2013-11-15"})
+        new Speaker({"id":"1","name":"Darko Krizic","description":"JBoss 7.1, JavaEE 6, JSF 2.1"}),
+        new Speaker({"id":"1","name":"Markus Konrad","description":"Glassfish 4.0, JavaEE 7, AngularJS"})
     ];
     $scope.delete = function(conf) {
         conf.$delete();
@@ -30,8 +24,9 @@ speakerModule.controller('modules.speaker.CreateController', ['$scope', '$locati
         $location.path('/speaker');
     };
     $scope.save = function () {
-        $scope.speaker.$save();
-        $location.path('/speaker');
+        $scope.speaker.$save(function(){
+            $location.path('/speaker');
+        });
     };
 }]);
 
@@ -41,7 +36,8 @@ speakerModule.controller('modules.speaker.EditController', ['$scope', '$routePar
         $location.path('/speaker');
     };
     $scope.save = function () {
-        $scope.speaker.$save();
-        $location.path('/speaker');
+        $scope.speaker.$save(function(){
+            $location.path('/speaker');
+        });
     };
 }]);

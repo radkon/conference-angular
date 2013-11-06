@@ -1,4 +1,4 @@
-<h3>Conferences</h3>
+<h3>Backoffice > Speakers</h3>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
@@ -8,17 +8,17 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="conference in conferences">
-            <td class="span1">{{conference.id}}</td>
-            <td class="span3">{{conference.name}}</td>
-            <td class="span9">{{conference.description}}</td>
+        <tr ng-repeat="speaker in speakers">
+            <td class="span1">{{speaker.id}}</td>
+            <td class="span3">{{speaker.name}}</td>
+            <td class="span9">{{speaker.description}}</td>
             <td class="span2">
                 <div class="btn-group">
-                    <a class="btn btn-small btn-primary" ng-href="#/conference/edit/{{conference.id}}">Edit</a>
-                    <a class="btn btn-small" ng-click="delete(conference)">Remove</a>
+                    <a class="btn btn-small btn-primary" ng-href="#/speaker/edit/{{speaker.id}}">Edit</a>
+                    <a class="btn btn-small" ng-click="delete(speaker)">Remove</a>
                 </div>
             </td>
         </tr>
     </tbody>
 </table>
-<a href="#/conference/create" class="btn">Add conference</a>
+<a href="#/speaker/create" class="btn">Add speaker</a>
