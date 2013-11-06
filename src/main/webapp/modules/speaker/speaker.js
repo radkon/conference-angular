@@ -7,15 +7,13 @@ speakerModule.factory('Speaker', ['$resource', function ($resource) {
 }]);
 
 speakerModule.controller('module.speaker.ListController', ['$scope', 'Speaker', function ($scope, Speaker) {
-    // $scope.speakers = Speaker.query();
-    $scope.speakers = [
-        new Speaker({"id":"1","name":"Darko Krizic","description":"JBoss 7.1, JavaEE 6, JSF 2.1"}),
-        new Speaker({"id":"1","name":"Markus Konrad","description":"Glassfish 4.0, JavaEE 7, AngularJS"})
-    ];
+    var loadSpeakers = function() {
+        $scope.speakers = Speaker.query();
+    };
     $scope.delete = function(conf) {
-        conf.$delete();
-
+        conf.$delete(loadSpeakers);
     }
+    loadSpeakers();
 }]);
 
 speakerModule.controller('modules.speaker.CreateController', ['$scope', '$location', 'Speaker', function ($scope, $location, Speaker) {
