@@ -22,13 +22,13 @@
         <div class="control-group">
             <label class="control-label" for="inputStartDate">Start date</label>
             <div class="controls">
-                <input type="text" id="inputStartDate" placeholder="Start date" ng-model="conference.startDate">
+                <input type="text" id="inputStartDate" placeholder="Click to pick start date" datepicker-popup="" ng-model="conference.startDate" is-open="startDatePickerOpened" datepicker-options="dateOptions" ng-required="true" />
             </div>
         </div>
         <div class="control-group">
             <label class="control-label" for="inputEndDate">End date</label>
             <div class="controls">
-                <input type="text" id="inputEndDate" placeholder="End date" ng-model="conference.endDate">
+                <input type="text" id="inputEndDate" placeholder="Click to pick end date" datepicker-popup="dd-MMMM-yyyy" ng-model="conference.endDate" is-open="endDatePickerOpened" datepicker-options="dateOptions" ng-required="true" />
             </div>
         </div>
         <div class="control-group">

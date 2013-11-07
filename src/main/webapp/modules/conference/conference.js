@@ -27,6 +27,10 @@ conferenceModule.controller('modules.conference.CreateController', ['$scope', '$
             $location.path('/conference');
         });
     };
+    $scope.dateOptions = {
+        'year-format': "'yy'",
+        'starting-day': 1
+    };
 }]);
 
 conferenceModule.controller('modules.conference.EditController', ['$scope', '$routeParams', '$location', 'Conference', function ($scope, $routeParams, $location, Conference) {
@@ -38,5 +42,9 @@ conferenceModule.controller('modules.conference.EditController', ['$scope', '$ro
         $scope.conference.$save(function(){
             $location.path('/conference');
         });
+    };
+    $scope.dateOptions = {
+        'year-format': "'yy'",
+        'starting-day': 1
     };
 }]);
